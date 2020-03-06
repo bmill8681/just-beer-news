@@ -10,9 +10,11 @@ import styles from './CSS/HomeView.module.css';
 // TEMPORARY
 import testData from '../testData.json';
 
-/* Ideally, this wouldn't be 'HomeView' as it's meant to be a self contained component
- * that you would include on one of the actual application views. Named 'HomeView here
- * as it is the home-route for this demonstration.
+/* Based on the current JustBeer website, this view would take in a
+ * parameter to determine which categorie of news should be fetched / displayed.
+ * A more comprehensive list of news articles would be included on this page and
+ * I would likely load them dynamically using lazy-loading, unless that caused performace
+ * issues, in which case paging could be done.
  */
 const HomeView = props => {
     const url = "https://justbeerapp.com/api/v8/articles/";
@@ -21,16 +23,13 @@ const HomeView = props => {
     const [data, setData] = useState({ payload: [] });
     const [topArticles, setTopArticles] = useState([]);
 
+    // For localhost testing
     useEffect(() => { setData(testData) }, [])
-    useEffect(() => {
-        // I'm certain this could be cleaner. Will refactor if time permits.
-        const [A1, A2, A3, A4, A5, A6] = data.payload;
-        setTopArticles([A1, A2, A3, A4, A5, A6]);
-    }, [data]);
-
+    
     /* Storing fetched article data in local storage, though this isn't 100% necessary.
      * I would handle this in a lazy-loading fashion in a non-demo build and likely utilize
      * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
+     */
     // useEffect(() => {
     //     if (localStorage.get("articleData")) {
     //         setData(localStorage.get("articleData"));
@@ -40,6 +39,12 @@ const HomeView = props => {
     //             .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
     //     }
     // }, []);
+    
+    useEffect(() => {
+        // Shallow copy. If a deep copy was needed I would use lodash-deepClone
+        const top = data.payload.slice(0, 6);
+        setTopArticles(top);
+    }, [data]);
 
     /* This can be refactored since the header is the same, only thing changing
      * are the icon name and the link text. TODO: Create a reusable header component to replace the 'header' section.
