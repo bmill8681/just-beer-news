@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoIosBeer, IoIosArrowBack } from 'react-icons/io';
 // Custom Components
 import NewsArticleItem from '../Components/News/NewsArticleItem';
+import ViewHeader from '../Components/ViewHeader';
 // Styling
 // import styles from './CSS/HomeView.module.css';
 import styles from './CSS/NewsView.module.css';
@@ -44,28 +45,7 @@ const NewsView = props => {
 
     return (
         <div className={styles.OuterWrapper}>
-            <header className={styles.Header}>
-                <IoIosBeer
-                    style={{ fontSize: "1.5em", margin: "0px 5px" }}
-                    className={styles.Center}
-                />
-                <h1 className={[styles.H1, styles.Center].join(' ')}>
-                    Latest Posts
-            </h1>
-                <Link to="/" className={styles.ReadMoreButton}>
-                    {/* <button
-                    
-                > */}
-                    <IoIosArrowBack
-                        style={{ fontSize: "1.5em", margin: "0px 5px" }}
-                        className={styles.Center}
-                    />
-                    <h2 className={[styles.H2, styles.Center].join(' ')} >
-                        Home
-                </h2>
-                    {/* </button> */}
-                </Link>
-            </header>
+            <ViewHeader text="Latest Posts" linkText="Home" back link="/" />
             <main className={styles.Main}>
                 {
                     data ? data.map((cur, index) => {

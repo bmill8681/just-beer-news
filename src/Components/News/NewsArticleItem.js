@@ -1,11 +1,14 @@
 // Frameworks & Libraries
 import React from 'react';
-
 // Custom Components
 import LoadingIcon from '../LoadingIcon';
 // Styling
 import styles from './NewsArticleItem.module.css';
 
+// Displays a single news article teaser in a different format than appears in the
+// top 6 articles list.
+// onClick of the element links to the original article in a new tab
+// Would link/route to the article within the application in non-demo practice.
 const NewsArticleItem = props => {
     return props.data ?
         < div
@@ -13,13 +16,13 @@ const NewsArticleItem = props => {
             onClick={() => window.open(props.data.permalink.link, "_blank")}
         >
             {
+                // contained the image within a div here to show a secondary way to
+                // display the image
                 props.data.images &&
-                <img
-                    data-thumb-mobile={props.data.images.thumb.mobile.link}
-                    data-thumb-desktop={props.data.images.thumb.desktop.link}
-                    src={props.data.images.share.mobile.link}
+                <div
+                    style={{ backgroundImage: `url(${props.data.images.share.desktop.link})`}}
                     className={styles.Image}
-                />
+                ></div>
             }
             <section className={styles.Details}>
                 {props.data.category && <h1 className={styles.H1}>{props.data.category.toUpperCase()}</h1>}

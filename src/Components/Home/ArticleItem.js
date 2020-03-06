@@ -1,11 +1,13 @@
 // Frameworks & Libraries
 import React from 'react';
-
 // Custom Components
 import LoadingIcon from '../LoadingIcon';
 // Styling
 import styles from './ArticleItem.module.css';
 
+// Displays a single news article teaser
+// onClick of the element links to the original article in a new tab
+// Would link/route to the article within the application in non-demo practice.
 const ArticleItem = props => {
     return props.data ?
         < div
@@ -13,11 +15,15 @@ const ArticleItem = props => {
             onClick={() => window.open(props.data.permalink.link, "_blank")}
         >
             {
+                // Although not currently used as it appears that the desktop
+                // and mobile images are the exact same, we could use an imageset
+                // to select which image to use for better optimization if it is a concern
                 props.data.images &&
                 <img
                     data-thumb-mobile={props.data.images.thumb.mobile.link}
                     data-thumb-desktop={props.data.images.thumb.desktop.link}
                     src={props.data.images.thumb.mobile.link}
+                    alt=""
                     className={styles.Image}
                 />
             }

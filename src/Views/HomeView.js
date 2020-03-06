@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoIosBeer, IoIosArrowForward } from 'react-icons/io';
 // Custom Components
 import ArticleList from '../Components/Home/ArticleList';
+import ViewHeader from '../Components/ViewHeader';
 // Styling
 import styles from './CSS/HomeView.module.css';
 
@@ -51,24 +52,7 @@ const HomeView = props => {
      */
     return (
         <div className={styles.OuterWrapper}>
-            <header className={styles.Header}>
-                <IoIosBeer
-                    style={{ fontSize: "1.5em", margin: "0px 5px" }}
-                    className={styles.Center}
-                />
-                <h1 className={[styles.H1, styles.Center].join(' ')}>
-                    Latest Posts
-                </h1>
-                <Link to="/articles/all" className={styles.ReadMoreButton}>
-                    <IoIosArrowForward
-                        style={{ fontSize: "1.5em", margin: "0px 5px" }}
-                        className={styles.Center}
-                    />
-                    <h2 className={[styles.H2, styles.Center].join(' ')} >
-                        More
-                    </h2>
-                </Link>
-            </header>
+            <ViewHeader text="Latest Posts" linkText="More" forward link="/articles/all" />
             <main className={styles.Main}>
                 <ArticleList articles={topArticles} />
             </main>
