@@ -29,13 +29,18 @@ const HomeView = props => {
     }, [data]);
 
     // useEffect(() => {
-    //     fetch(url)
-    //         .then(response => response.json())
-    //         .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+    //     if (localStorage.get("articleData")) {
+    //         setData(localStorage.get("articleData"));
+    //     } else {
+    //         fetch(url)
+    //             .then(response => response.json())
+    //             .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+    //     }
     // }, []);
 
-    // This can be refactored since the header is the same, only thing changing
-    // are the icon name and the link text.
+    /* This can be refactored since the header is the same, only thing changing
+     * are the icon name and the link text. TODO: Create a reusable header component to replace the 'header' section.
+     */
     return (
         <div className={styles.OuterWrapper}>
             <header className={styles.Header}>
