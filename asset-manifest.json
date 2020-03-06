@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/just-beer-news/static/css/main.fd169c1c.chunk.css",
-    "main.js": "/just-beer-news/static/js/main.ac853cf2.chunk.js",
-    "main.js.map": "/just-beer-news/static/js/main.ac853cf2.chunk.js.map",
+    "main.js": "/just-beer-news/static/js/main.7ca9fb02.chunk.js",
+    "main.js.map": "/just-beer-news/static/js/main.7ca9fb02.chunk.js.map",
     "runtime-main.js": "/just-beer-news/static/js/runtime-main.d85276a5.js",
     "runtime-main.js.map": "/just-beer-news/static/js/runtime-main.d85276a5.js.map",
-    "static/js/2.3b096296.chunk.js": "/just-beer-news/static/js/2.3b096296.chunk.js",
-    "static/js/2.3b096296.chunk.js.map": "/just-beer-news/static/js/2.3b096296.chunk.js.map",
+    "static/js/2.3f4e8039.chunk.js": "/just-beer-news/static/js/2.3f4e8039.chunk.js",
+    "static/js/2.3f4e8039.chunk.js.map": "/just-beer-news/static/js/2.3f4e8039.chunk.js.map",
     "index.html": "/just-beer-news/index.html",
-    "precache-manifest.34b1fcdc4f0d48f6205199615088959b.js": "/just-beer-news/precache-manifest.34b1fcdc4f0d48f6205199615088959b.js",
+    "precache-manifest.16773776ed9b89ba8ab49164c4e94874.js": "/just-beer-news/precache-manifest.16773776ed9b89ba8ab49164c4e94874.js",
     "service-worker.js": "/just-beer-news/service-worker.js",
     "static/css/main.fd169c1c.chunk.css.map": "/just-beer-news/static/css/main.fd169c1c.chunk.css.map",
-    "static/js/2.3b096296.chunk.js.LICENSE.txt": "/just-beer-news/static/js/2.3b096296.chunk.js.LICENSE.txt"
+    "static/js/2.3f4e8039.chunk.js.LICENSE.txt": "/just-beer-news/static/js/2.3f4e8039.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d85276a5.js",
-    "static/js/2.3b096296.chunk.js",
+    "static/js/2.3f4e8039.chunk.js",
     "static/css/main.fd169c1c.chunk.css",
-    "static/js/main.ac853cf2.chunk.js"
+    "static/js/main.7ca9fb02.chunk.js"
   ]
 }
