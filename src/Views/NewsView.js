@@ -1,7 +1,5 @@
 // Frameworks
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { IoIosBeer, IoIosArrowBack } from 'react-icons/io';
 // Custom Components
 import NewsArticleItem from '../Components/News/NewsArticleItem';
 import ViewHeader from '../Components/ViewHeader';
@@ -21,9 +19,34 @@ const NewsView = props => {
     // State Management & Fetch on component mount
     const [data, setData] = useState([]);
 
-    // For localhost testing
+
+    /* 
+ * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
+ * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
+ * Note: It's an assumption that the articles are all unique. I found duplicates in the data after the top 6 records. 
+ * Questions in development would be: Should I be filtering the results for unique records only? Or are the top 6
+ * meant to be used in this way? In the NewsView, I filter the duplicate results.
+ */
     useEffect(() => {
-        const sortedData = testData.payload.sort((a, b) => a.id < b.id);
+        fetch(url)
+            .then(response => response.json())
+            .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+    }, []);
+
+    // For localhost testing
+    // useEffect(() => {
+    //     const sortedData = testData.payload.sort((a, b) => a.id < b.id);
+    //     const removedDoubles = [];
+    //     sortedData.forEach(cur => {
+    //         if (!removedDoubles.find(doubleArticle => doubleArticle.id === cur.id)) {
+    //             removedDoubles.push(cur);
+    //         }
+    //     });
+    //     setData(removedDoubles)
+    // }, [])
+
+    useEffect(() => {
+        const sortedData = data.payload.sort((a, b) => a.id < b.id);
         const removedDoubles = [];
         sortedData.forEach(cur => {
             if (!removedDoubles.find(doubleArticle => doubleArticle.id === cur.id)) {

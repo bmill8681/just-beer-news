@@ -1,7 +1,5 @@
 // Frameworks & Libraries
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { IoIosBeer, IoIosArrowForward } from 'react-icons/io';
 // Custom Components
 import ArticleList from '../Components/Home/ArticleList';
 import ViewHeader from '../Components/ViewHeader';
@@ -25,21 +23,25 @@ const HomeView = props => {
     const [topArticles, setTopArticles] = useState([]);
 
     // For localhost testing
-    useEffect(() => { setData(testData) }, [])
+    // useEffect(() => { setData(testData) }, [])
 
     /* 
      * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
      * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
+     * Note: It's an assumption that the articles are all unique. I found duplicates in the data after the top 6 records. 
+     * Questions in development would be: Should I be filtering the results for unique records only? Or are the top 6
+     * meant to be used in this way? In the NewsView, I filter the duplicate results.
      */
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(response => response.json())
-    //         .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
-    // }, []);
-
     useEffect(() => {
-        // Shallow copy. If a deep copy was needed I would use lodash-deepClone
-        const top = data.payload.slice(0, 6);
+        fetch(url)
+            .then(response => response.json())
+            .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+    }, []);
+
+    // Shallow copy of the first 6 articles retrieved. If a deep copy was needed I would use lodash-deepClone
+    useEffect(() => {
+        const maxLength = data.payload.length >= 6 ? 6 : data.payload.length;
+        const top = data.payload.slice(0, maxLength);
         setTopArticles(top);
     }, [data]);
 
