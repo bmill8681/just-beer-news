@@ -6,3 +6,5 @@ Refactor styles - can use a single NewsArticle card and give it different stylin
 view we're in. 
 
 Check if I can use CSS Pseudo selectors to handle the article divider in ArticleList.js(21)
+
+Refactor images in cards - utilize the different links for mobile/desktop - share/thumb
