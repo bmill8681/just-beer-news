@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Custom Components
-
+import LoadingIcon from '../LoadingIcon';
 // Styling
 import styles from './ArticleItem.module.css';
 
@@ -28,7 +28,7 @@ const ArticleItem = props => {
                 <section className={styles.Fade} />
             </section>
         </div >
-        : <h1>Loading</h1>
+        : <LoadingIcon />
 }
 
 export default ArticleItem; 

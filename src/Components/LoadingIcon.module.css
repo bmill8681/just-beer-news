@@ -1,0 +1,29 @@
+.LoadingIcon{
+    height: 50px;
+    width: 50px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: rgba(0,0,0,0.5);
+    animation-name: Jiggle;
+    animation-play-state: running;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Jiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+}
