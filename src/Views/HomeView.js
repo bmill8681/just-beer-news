@@ -28,6 +28,9 @@ const HomeView = props => {
         setTopArticles([A1, A2, A3, A4, A5, A6]);
     }, [data]);
 
+    /* Storing fetched article data in local storage, though this isn't 100% necessary.
+     * I would handle this in a lazy-loading fashion in a non-demo build and likely utilize
+     * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
     // useEffect(() => {
     //     if (localStorage.get("articleData")) {
     //         setData(localStorage.get("articleData"));
