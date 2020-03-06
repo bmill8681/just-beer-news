@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosBeer, IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-// Custom Components
-
 // Styling
 import styles from './ViewHeader.module.css';
 

@@ -5,10 +5,13 @@ import LoadingIcon from '../LoadingIcon';
 // Styling
 import styles from './NewsArticleItem.module.css';
 
-// Displays a single news article teaser in a different format than appears in the
-// top 6 articles list.
-// onClick of the element links to the original article in a new tab
-// Would link/route to the article within the application in non-demo practice.
+/*  Displays a single news article teaser in a different format than appears in the
+ *  top 6 articles list.
+ *  Would link/route to the article within the application in non-demo practice.
+ *  onClick of the element links to the original article in a new tab
+ *  Props -
+ *      data: object - object containing the data from the api. Must be in expected format. 
+ */
 const NewsArticleItem = props => {
     return props.data ?
         < div

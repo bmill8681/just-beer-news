@@ -26,21 +26,17 @@ const HomeView = props => {
 
     // For localhost testing
     useEffect(() => { setData(testData) }, [])
-    
-    /* Storing fetched article data in local storage, though this isn't 100% necessary.
-     * I would handle this in a lazy-loading fashion in a non-demo build and likely utilize
+
+    /* 
+     * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
      * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
      */
     // useEffect(() => {
-    //     if (localStorage.get("articleData")) {
-    //         setData(localStorage.get("articleData"));
-    //     } else {
-    //         fetch(url)
-    //             .then(response => response.json())
-    //             .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
-    //     }
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
     // }, []);
-    
+
     useEffect(() => {
         // Shallow copy. If a deep copy was needed I would use lodash-deepClone
         const top = data.payload.slice(0, 6);
