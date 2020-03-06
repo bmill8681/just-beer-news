@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/just-beer-news/static/css/main.fd169c1c.chunk.css",
-    "main.js": "/just-beer-news/static/js/main.7a786be8.chunk.js",
-    "main.js.map": "/just-beer-news/static/js/main.7a786be8.chunk.js.map",
+    "main.js": "/just-beer-news/static/js/main.ac853cf2.chunk.js",
+    "main.js.map": "/just-beer-news/static/js/main.ac853cf2.chunk.js.map",
     "runtime-main.js": "/just-beer-news/static/js/runtime-main.d85276a5.js",
     "runtime-main.js.map": "/just-beer-news/static/js/runtime-main.d85276a5.js.map",
     "static/js/2.3b096296.chunk.js": "/just-beer-news/static/js/2.3b096296.chunk.js",
     "static/js/2.3b096296.chunk.js.map": "/just-beer-news/static/js/2.3b096296.chunk.js.map",
     "index.html": "/just-beer-news/index.html",
-    "precache-manifest.c15df6b579bfde50c405fd486255fcf6.js": "/just-beer-news/precache-manifest.c15df6b579bfde50c405fd486255fcf6.js",
+    "precache-manifest.34b1fcdc4f0d48f6205199615088959b.js": "/just-beer-news/precache-manifest.34b1fcdc4f0d48f6205199615088959b.js",
     "service-worker.js": "/just-beer-news/service-worker.js",
     "static/css/main.fd169c1c.chunk.css.map": "/just-beer-news/static/css/main.fd169c1c.chunk.css.map",
     "static/js/2.3b096296.chunk.js.LICENSE.txt": "/just-beer-news/static/js/2.3b096296.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d85276a5.js",
     "static/js/2.3b096296.chunk.js",
     "static/css/main.fd169c1c.chunk.css",
-    "static/js/main.7a786be8.chunk.js"
+    "static/js/main.ac853cf2.chunk.js"
   ]
 }
