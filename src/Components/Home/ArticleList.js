@@ -13,7 +13,7 @@ const ArticleList = props => {
     return (
         <>
             {
-                props.articles ? props.articles.map((cur, index) => {
+                props.articles && props.articles.length > 0 ? props.articles.map((cur, index) => {
                     return (
                         // I would like to assume the article id is unique, but that isn't verified at the moment. So, I'm using the index
                         // as the key for the elements within the array.
@@ -24,7 +24,7 @@ const ArticleList = props => {
                             />
                             {index < props.articles.length - 1 ? <div style={{ outline: "1px solid lightgrey" }}></div> : undefined}</section>
                     )
-                }) : undefined
+                }) : <h2 style={{}}>No news is good news. Check back soon!</h2>
             }
         </>
     )

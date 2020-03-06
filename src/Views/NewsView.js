@@ -17,7 +17,7 @@ const NewsView = props => {
     const url = "https://justbeerapp.com/api/v8/articles/";
 
     // State Management & Fetch on component mount
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({ payload: [] });
 
 
     /* 
@@ -71,7 +71,7 @@ const NewsView = props => {
             <ViewHeader text="Latest Posts" linkText="Home" back link="/" />
             <main className={styles.Main}>
                 {
-                    data ? data.map((cur, index) => {
+                    data && data.payload ? data.payload.map((cur, index) => {
                         return <NewsArticleItem key={index} data={cur} />
                     })
                         : <h2>Oops! Spilled my beer on the latest paper. Check back soon!</h2>
