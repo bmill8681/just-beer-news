@@ -17,7 +17,7 @@ const NewsArticleItem = props => {
                 <img
                     data-thumb-mobile={props.data.images.thumb.mobile.link}
                     data-thumb-desktop={props.data.images.thumb.desktop.link}
-                    src={props.data.images.thumb.mobile.link}
+                    src={props.data.images.share.mobile.link}
                     className={styles.Image}
                 />
             }

@@ -5,8 +5,8 @@ import { IoIosBeer, IoIosArrowBack } from 'react-icons/io';
 // Custom Components
 import NewsArticleItem from '../Components/News/NewsArticleItem';
 // Styling
-import styles from './CSS/HomeView.module.css';
-
+// import styles from './CSS/HomeView.module.css';
+import styles from './CSS/NewsView.module.css';
 // TEMPORARY
 import testData from '../testData.json';
 
@@ -69,7 +69,7 @@ const NewsView = props => {
             <main className={styles.Main}>
                 {
                     data ? data.map((cur, index) => {
-                        return <NewsArticleItem key={index} data={cur} />
+                        return <NewsArticleItem key={index+cur.id} data={cur} />
                     })
                         : <h2>Oops! Spilled my beer on the latest paper. Check back soon!</h2>
                 }
