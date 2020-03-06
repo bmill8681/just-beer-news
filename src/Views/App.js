@@ -14,8 +14,8 @@ import styles from './CSS/App.module.css';
 function App() {
   return (
     <div className={styles.OuterWrapper}>
-      <Route exact path="/" component={HomeView} />
-      <Route path="/articles/all" component={NewsView} />
+      <Route key="/" exact path="/" component={HomeView} />
+      <Route key="/articles/all" exact path="/articles/all" component={NewsView} />
     </div>
   );
 }

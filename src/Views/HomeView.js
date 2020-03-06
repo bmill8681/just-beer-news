@@ -7,7 +7,7 @@ import ViewHeader from '../Components/ViewHeader';
 import styles from './CSS/HomeView.module.css';
 
 // TEMPORARY
-import testData from '../testData.json';
+// import testData from '../testData.json';
 
 /* Based on the current JustBeer website, this view would take in a
  * parameter to determine which categorie of news should be fetched / displayed.

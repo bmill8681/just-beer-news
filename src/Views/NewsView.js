@@ -7,7 +7,7 @@ import ViewHeader from '../Components/ViewHeader';
 // import styles from './CSS/HomeView.module.css';
 import styles from './CSS/NewsView.module.css';
 // TEMPORARY
-import testData from '../testData.json';
+// import testData from '../testData.json';
 
 /*  News View
  *  Ideally this would be its own view, not necessarily a self-contained component for use on
@@ -18,7 +18,7 @@ const NewsView = props => {
 
     // State Management & Fetch on component mount
     const [data, setData] = useState({ payload: [] });
-
+    const [articles, setArticles] = useState([]);
 
     /* 
  * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
@@ -53,8 +53,8 @@ const NewsView = props => {
                 removedDoubles.push(cur);
             }
         });
-        setData(removedDoubles)
-    }, [])
+        setArticles(removedDoubles)
+    }, [data])
 
     /* 
      * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
@@ -71,9 +71,10 @@ const NewsView = props => {
             <ViewHeader text="Latest Posts" linkText="Home" back link="/" />
             <main className={styles.Main}>
                 {
-                    data && data.payload ? data.payload.map((cur, index) => {
-                        return <NewsArticleItem key={index} data={cur} />
-                    })
+                    articles.length > 0 ?
+                        articles.map((cur, index) => {
+                            return <NewsArticleItem key={index} data={cur} />
+                        })
                         : <h2>Oops! Spilled my beer on the latest paper. Check back soon!</h2>
                 }
             </main>
