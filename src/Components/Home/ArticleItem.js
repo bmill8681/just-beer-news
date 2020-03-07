@@ -1,7 +1,5 @@
 // Frameworks & Libraries
 import React from 'react';
-// Custom Components
-import LoadingIcon from '../LoadingIcon';
 // Styling
 import styles from './ArticleItem.module.css';
 

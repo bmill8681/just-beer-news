@@ -19,7 +19,7 @@ const NewsView = props => {
 
     // State Management & Fetch on component mount
     const [data, setData] = useState({ payload: [] });
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [articles, setArticles] = useState([]);
 
     /* 
@@ -35,7 +35,7 @@ const NewsView = props => {
         fetch(url)
             .then(response => response.json())
             .then(response => {
-                response ? setData(response) : { payload: [] };
+                setData(response);
                 setLoading(false);
             })
             .catch(err => {
@@ -63,12 +63,12 @@ const NewsView = props => {
             <main className={styles.Main}>
                 { loading && <LoadingIcon /> }
                 {
-                    articles.length > 0 && !loading ?
+                    !loading && articles.length > 0 &&
                         articles.map((cur, index) => {
                             return <NewsArticleItem key={index} data={cur} />
                         })
-                        : <h2>Oops! Spilled my beer on the latest paper. Check back soon!</h2>
                 }
+                { !loading && articles.length === 0 && <h2>Oops! Spilled my beer on the latest paper. Check back soon!</h2> }
             </main>
         </div>
     )

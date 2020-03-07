@@ -34,9 +34,9 @@ const HomeView = props => {
         fetch(url)
             .then(response => { console.log(response); return response.json(); })
             .then(response => {
-                response ? setData(response) : { payload: [] };
+                setData(response)
                 setLoading(false);
-            }) // Ensuring articles is never undefined or null
+            })
             .catch(err => {
                 console.error(err)
                 setLoading(false);

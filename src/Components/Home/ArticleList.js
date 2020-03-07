@@ -18,7 +18,7 @@ const ArticleList = props => {
                         // I would like to assume the article id is unique, but that isn't verified at the moment. So, I'm using the index
                         // as the key for the elements within the array.
                         // Also - if I was handling CSS differently I could omit the div being used as a divider between articles and use a pseudo selector.
-                        <section key={index}>
+                        <section key={index} style={{ width: "100%" }}>
                             <ArticleItem
                                 data={cur}
                             />
