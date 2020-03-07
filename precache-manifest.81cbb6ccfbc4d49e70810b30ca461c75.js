@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4530ecf91340299dc059b7f8eeefca7b",
+    "revision": "4dba034088264ccbe98b526abe9bf1b3",
     "url": "/just-beer-news/index.html"
   },
   {
-    "revision": "a85ebae513295aab7cd8",
+    "revision": "41ddfeaf8d08efccce44",
     "url": "/just-beer-news/static/css/main.fd169c1c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/just-beer-news/static/js/2.94d81eb5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a85ebae513295aab7cd8",
-    "url": "/just-beer-news/static/js/main.aec092ca.chunk.js"
+    "revision": "41ddfeaf8d08efccce44",
+    "url": "/just-beer-news/static/js/main.0b49b849.chunk.js"
   },
   {
     "revision": "854eab47eb9e4e75c96c",
