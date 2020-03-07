@@ -2,12 +2,11 @@
 import React, { useEffect, useState } from 'react';
 // Custom Components
 import ArticleList from '../Components/Home/ArticleList';
+import LoadingIcon from '../Components/LoadingIcon';
 import ViewHeader from '../Components/ViewHeader';
 // Styling
 import styles from './CSS/HomeView.module.css';
 
-// TEMPORARY
-// import testData from '../testData.json';
 
 /* Based on the current JustBeer website, this view would take in a
  * parameter to determine which categorie of news should be fetched / displayed.
@@ -16,14 +15,12 @@ import styles from './CSS/HomeView.module.css';
  * issues, in which case paging could be done.
  */
 const HomeView = props => {
-    const url = "https://justbeerapp.com/api/v8/articles/";
+    const url = "https://just-beer-8681.herokuapp.com/justBeerProxy.php";
 
     // State Management & Fetch on component mount
     const [data, setData] = useState({ payload: [] });
+    const [loading, setLoading] = useState(false);
     const [topArticles, setTopArticles] = useState([]);
-
-    // For localhost testing
-    // useEffect(() => { setData(testData) }, [])
 
     /* 
      * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
@@ -33,9 +30,17 @@ const HomeView = props => {
      * meant to be used in this way? In the NewsView, I filter the duplicate results.
      */
     useEffect(() => {
+        setLoading(true);
         fetch(url)
-            .then(response => response.json())
-            .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+            .then(response => { console.log(response); return response.json(); })
+            .then(response => {
+                response ? setData(response) : { payload: [] };
+                setLoading(false);
+            }) // Ensuring articles is never undefined or null
+            .catch(err => {
+                console.error(err)
+                setLoading(false);
+            });
     }, []);
 
     // Shallow copy of the first 6 articles retrieved. If a deep copy was needed I would use lodash-deepClone
@@ -52,7 +57,7 @@ const HomeView = props => {
         <div className={styles.OuterWrapper}>
             <ViewHeader text="Latest Posts" linkText="More" forward link="/articles/all" />
             <main className={styles.Main}>
-                <ArticleList articles={topArticles} />
+                { loading ? <LoadingIcon /> : <ArticleList articles={topArticles} /> }
             </main>
         </div>
     )

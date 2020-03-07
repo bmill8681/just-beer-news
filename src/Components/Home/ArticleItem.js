@@ -10,9 +10,9 @@ import styles from './ArticleItem.module.css';
  *  Would link/route to the article within the application in non-demo practice.
  *  Props -
  *      data: object - object containing the data from the api. Must be in expected format. 
- */ 
+ */
 const ArticleItem = props => {
-    return props.data ?
+    return (
         < div
             className={styles.OuterWrapper}
             onClick={() => window.open(props.data.permalink.link, "_blank")}
@@ -35,7 +35,7 @@ const ArticleItem = props => {
                 <section className={styles.Fade} />
             </section>
         </div >
-        : <LoadingIcon />
+    )
 }
 
 export default ArticleItem; 

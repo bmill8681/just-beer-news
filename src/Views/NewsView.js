@@ -1,12 +1,13 @@
 // Frameworks
 import React, { useEffect, useState } from 'react';
 // Custom Components
+import LoadingIcon from '../Components/LoadingIcon';
 import NewsArticleItem from '../Components/News/NewsArticleItem';
 import ViewHeader from '../Components/ViewHeader';
 // Styling
-// import styles from './CSS/HomeView.module.css';
 import styles from './CSS/NewsView.module.css';
-// TEMPORARY
+
+// TEMPORARY - Used for local testing and left here to show how I did initial testing
 // import testData from '../testData.json';
 
 /*  News View
@@ -14,37 +15,37 @@ import styles from './CSS/NewsView.module.css';
  *  other views. As result, a lot of this code is repeated from the HomeView. This wouldn't typically be the case.
  */
 const NewsView = props => {
-    const url = "https://justbeerapp.com/api/v8/articles/";
+    const url = "https://just-beer-8681.herokuapp.com/justBeerProxy.php";
 
     // State Management & Fetch on component mount
     const [data, setData] = useState({ payload: [] });
+    const [loading, setLoading] = useState(false);
     const [articles, setArticles] = useState([]);
 
     /* 
- * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
- * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
- * Note: It's an assumption that the articles are all unique. I found duplicates in the data after the top 6 records. 
- * Questions in development would be: Should I be filtering the results for unique records only? Or are the top 6
- * meant to be used in this way? In the NewsView, I filter the duplicate results.
- */
+     * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
+     * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
+     * Note: It's an assumption that the articles are all unique. I found duplicates in the data after the top 6 records. 
+     * Questions in development would be: Should I be filtering the results for unique records only? Or are the top 6
+     * meant to be used in this way? In the NewsView, I filter the duplicate results.
+     */
+    // On component mount - fetches news articles
     useEffect(() => {
+        setLoading(true);
         fetch(url)
             .then(response => response.json())
-            .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
+            .then(response => {
+                response ? setData(response) : { payload: [] };
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false)
+            }); // Ensuring articles is never undefined or null
     }, []);
 
-    // For localhost testing
-    // useEffect(() => {
-    //     const sortedData = testData.payload.sort((a, b) => a.id < b.id);
-    //     const removedDoubles = [];
-    //     sortedData.forEach(cur => {
-    //         if (!removedDoubles.find(doubleArticle => doubleArticle.id === cur.id)) {
-    //             removedDoubles.push(cur);
-    //         }
-    //     });
-    //     setData(removedDoubles)
-    // }, [])
 
+    // Removes any articles with a duplicate ID from the fetched data
     useEffect(() => {
         const sortedData = data.payload.sort((a, b) => a.id < b.id);
         const removedDoubles = [];
@@ -56,22 +57,13 @@ const NewsView = props => {
         setArticles(removedDoubles)
     }, [data])
 
-    /* 
-     * I would like to handle this in a lazy-loading fashion in a non-demo build and likely utilize
-     * other API-URI's as discussed in the interview. IE: /api/v8/articles/someCategorieOfArticle
-     */
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(response => response.json())
-    //         .then(response => response ? setData(response) : { payload: [] }); // Ensuring articles is never undefined or null
-    // }, []);
-
     return (
         <div className={styles.OuterWrapper}>
             <ViewHeader text="Latest Posts" linkText="Home" back link="/" />
             <main className={styles.Main}>
+                { loading && <LoadingIcon /> }
                 {
-                    articles.length > 0 ?
+                    articles.length > 0 && !loading ?
                         articles.map((cur, index) => {
                             return <NewsArticleItem key={index} data={cur} />
                         })

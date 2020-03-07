@@ -22,7 +22,7 @@ const ViewHeader = props => {
             />
             <h1 className={[styles.H1, styles.Center].join(' ')}>
                 {props.text}
-        </h1>
+            </h1>
             <Link to={props.link} className={styles.ReadMoreButton}>
                 {props.forward && <IoIosArrowForward
                     style={{ fontSize: "1.5em", margin: "0px 5px" }}
