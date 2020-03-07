@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/just-beer-news/precache-manifest.81cbb6ccfbc4d49e70810b30ca461c75.js"
+  "/just-beer-news/precache-manifest.3930219141ed3fc7936c67ff045ac4ce.js"
 );
 
 self.addEventListener('message', (event) => {
